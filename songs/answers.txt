@@ -1,0 +1,4 @@
+I will calculate the average of energy, valence, and danceability for in the top 100 songs table, and based off the average to determine the mood or aura.
+
+However, the energy, valence, and danceability may have different scale of representing the audio aura, so to improve, may use a weighted average instead.
+
