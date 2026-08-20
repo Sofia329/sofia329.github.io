@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Google Advanced Search</title>
+        <style>
+
+        body{
+            font-family: Verdana, Tahoma, sans-serif;
+            font-size: 20px;
+            padding: 1rem;
+            position: relative;
+        }
+
+        nav{
+            position: absolute;
+            top: 10px;
+            right:5px;
+        }
+
+        nav:hover {
+                background-color: beige;
+            }
+
+        header{
+             font-size:50px;
+             margin-bottom: 2rem;
+        }
+
+        .container{
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2rem;
+            position: relative;
+            max-width: 50vw;
+        }
+         .container > input{
+
+            border-radius: 10px;
+         }
+
+        .container > input[type="submit"]{
+            width: 200px;
+            color: white;
+            background-color: blue;
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border:none;
+            font-family: Verdana, Tahoma, sans-serif;
+
+        }
+
+        </style>
+    </head>
+    <body>
+        <nav id="nav">
+            <a href="/index.html">Google Search</a>
+        </nav>
+        <header>Advanced Search</header>
+        <main>
+        <form action="https://google.com/search" class="container">
+            <p>all of these words:</p>
+            <input type="text" name="as_q">
+
+            <p>this exact word or phrase:</p>
+            <input type="text" name="as_epq">
+
+            <p>any of these words:</p>
+            <input type="text" name="as_oq">
+
+            <p>none of these words:</p>
+            <input type="text" name="as_eq">
+
+            <p></p>
+            <input type="submit" value="Advanced Search">
+
+        </form>
+        </main>
+
+    </body>
+</html>
