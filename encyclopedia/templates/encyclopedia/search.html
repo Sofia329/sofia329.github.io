@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    search
+{% endblock %}
+
+{% block body %}
+    <ul>
+        {% if entries %}
+            <h2>Relevant Results you may also want:</h2>
+            {% for entry in entries %}
+                <li><a href=" {% url 'wiki:title' entry %} ">{{entry}}</a></li>
+            {% endfor %}
+        {% else %}
+            <h2>No relevant results found</h2>
+        {% endif %}
+
+    </ul>
+
+
+{% endblock %}

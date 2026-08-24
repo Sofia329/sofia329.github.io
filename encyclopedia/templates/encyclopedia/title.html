@@ -1,0 +1,19 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{title_name}}
+{% endblock %}
+
+{% block nav %}
+<a href="{% url 'wiki:edit' title_name %}">Edit Current Page</a>
+{% endblock %}
+
+{% block body %}
+    {% if title_name %}
+        {{content | safe}}
+    {% else %}
+        The requested page was not found
+    {% endif %}
+
+
+{% endblock %}

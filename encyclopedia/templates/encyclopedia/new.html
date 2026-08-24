@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    test
+{% endblock %}
+
+{% block body %}
+    {% if not existence %}
+        <form action="{% url 'wiki:new' %}" method="post">
+            {% csrf_token %}
+            <label for="title" >Wiki Title</label>
+            <input id="title" name="title" type="text" placeholder="title" autocomplete="off" autofocus name="title">
+            <label for="content" style="display:block;">Wiki Context</label>
+            <textarea  id="context" name="content" rows="4" cols="50" placeholder="type your content here"></textarea>
+            <button style="display:block">Save</button>
+        </form>
+    {% else %}
+        {% if not title_name %}
+            Title must be provided
+        {% elif not content %}
+            Content must be provided
+        {% else %}
+            Title already exists, pls enter another one
+        {% endif %}
+    {% endif %}
+
+{% endblock %}
