@@ -1,0 +1,27 @@
+body {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color:palevioletred;
+}
+
+.active_listings, .watchlist, .mylistings{
+    padding:20px;
+    border-radius: 15px;
+    margin: 1rem;
+    text-align: left;
+    text-wrap: wrap;
+    font-size:18px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    background-color:pink;
+    
+}
+.active_listings img, .watchlist img, .mylistings img {
+    width:300px;
+    height: 300px;
+    float:left;
+    margin-right:15px;
+
+}
+

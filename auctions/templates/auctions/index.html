@@ -1,0 +1,47 @@
+{% extends "auctions/layout.html" %}
+{% block style %}
+<style>
+    .active_listings img{
+        border: 5px solid palevioletred;
+        border-radius: 10px;
+    }
+    .active_listings > div:last-child{
+        display:flex;
+        flex-direction: column;
+        gap:3px;
+        width: 1000px;
+    }
+
+</style>
+{% endblock %}
+
+{% block body %}
+
+<h2>Active Listings</h2>
+
+{% for auction in auctions %}
+    
+        <div class="active_listings">
+            <div>
+                <a href="{% url 'listpage' auction.id %}" style="text-decoration: none; color:black;">
+                <img src="{{auction.image}}" alt="item image"></a>
+            </div>
+            <div>
+                <div><strong>Title: </strong> {{auction.title}}</div>
+                <div><strong>Description: </strong>{{auction.description}}</div>
+                <div><strong>Start Bid: </strong>{{auction.start_bid}}</div>
+                <div><strong>Created: </strong>{{auction.timestamp}}</div>
+                <div><strong>Condition: </strong> {{auction.condition.condition}} </div>
+                <div><strong>Category: </strong>{{auction.category.category}} </div>
+            </div>
+        </div>
+   
+    
+    
+{% empty %}
+
+    No Active Listings
+ 
+{% endfor %}
+  
+{% endblock %}  

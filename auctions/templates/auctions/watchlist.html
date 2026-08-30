@@ -1,0 +1,45 @@
+{% extends "auctions/layout.html" %}
+{% block style %}
+
+<style>
+    .watchlist img{
+        border: 5px solid palevioletred;
+        border-radius: 10px;
+    }
+    .watchlist > div:last-child{
+        display:flex;
+        flex-direction: column;
+        gap:3px;
+        width: 1000px;
+    }
+
+</style>
+
+{% endblock %}
+
+{% block body %}
+
+<h1> My Watchlist</h1>
+
+{% for auction in auctions %}
+    <div class="watchlist">   
+        <div>
+        <a href="{% url 'listpage' auction.id %}">
+        <img src="{{auction.image}}" alt="item image"></a> 
+        </div>
+        <div>
+        <div><strong>Title: </strong> {{auction.title}}</div>
+        <div><strong>Description: </strong>{{auction.description}}</div>
+        <div><strong>Start Bid: </strong>{{auction.start_bid}}</div>
+        <div><strong>Created: </strong>{{auction.timestamp}}</div>
+        <div><strong>Condition: </strong> {{auction.condition.condition}} </div>
+        <div><strong>Category: </strong>{{auction.category.category}} </div></div>
+    </div>
+
+{% empty %}
+  
+You don't have any Watchlist
+
+{% endfor %}
+
+{% endblock %}  

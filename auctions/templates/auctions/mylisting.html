@@ -1,0 +1,61 @@
+{% extends "auctions/layout.html" %}
+
+{% block style %}
+
+<style>
+    .mylistings{
+    display: flex;
+    gap:20px;
+    
+
+    }
+    .mylistings img {
+        border: 5px solid palevioletred;
+        border-radius: 10px;
+      
+    }
+    
+    .mylistings > div:last-child{
+        display:flex;
+        flex-direction: column;
+        gap:3px;
+        width: 1000px;
+    }
+    .mylistings  a {
+        border: 1px solid palevioletred;
+        background-color:palevioletred;
+        border-radius: 10px;
+        padding: 10px;
+        color: black;
+        width:200px;
+        text-align: center;
+        color: whitesmoke;
+    }
+
+</style>
+{% endblock %}
+
+{% block body %}
+
+<h2>My Listings</h2>
+
+{% for mylisting in mylistings %}
+<div class="mylistings">
+    <div>
+    <img src="{{mylisting.image}}" alt="item image"></div>
+    <div>
+    <div><strong>Lisitng ID: </strong> {{mylisting.id}}</div>
+    <div><strong>Title: </strong> {{mylisting.title}}</div>
+    <div><strong>Description: </strong>{{mylisting.description}}</div>
+    <div><strong>Start Bid: </strong>{{mylisting.start_bid}}</div>
+    <div><strong>Created: </strong>{{mylisting.timestamp}}</div>
+    <div><strong>Condition: </strong> {{mylisting.condition.condition}} </div>
+    <div><strong>Category: </strong>{{mylisting.category.category}} </div>
+    <a href="{% url 'amend_listing' mylisting.id  %}">Amend Listing</a></div>
+</div>
+    
+{% empty %}
+    You don't current have any listings
+{% endfor %}
+    
+{% endblock %}

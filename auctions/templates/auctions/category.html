@@ -1,0 +1,45 @@
+{% extends "auctions/layout.html" %}
+
+{% block style %}
+
+<style>
+    form{
+        display:inline;
+    }
+
+    #container {
+        margin: 50px;
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap:50px;
+        
+    }
+
+    button{
+        background-color:pink;
+        color:black;
+        padding: 30px;
+        font-weight: 600;
+        border-radius: 15px;
+        text-align: left;
+
+    }
+
+        
+</style>
+{% endblock %}
+
+{% block body %}
+
+<h2>Sort by Categories</h2>
+
+<div id="container">
+{% for category in categories %}
+<form action="{%  url 'index' %}" method="post">
+    {% csrf_token %}
+    <button type="submit" name="category" value="{{category.category}}">{{category.category}}</button>
+</form>
+{% endfor %}
+</div>
+{% endblock %}

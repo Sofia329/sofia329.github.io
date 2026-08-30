@@ -1,0 +1,67 @@
+{% extends "auctions/layout.html" %}
+
+{% block style %}
+<style>
+
+#box{
+    display: grid;
+    grid-template-columns: minmax(200px, 600px);
+    gap:50px;
+
+}
+
+#id_category , #id_condition, #id_start_bid, #id_image, #id_title, #id_description{
+    padding: 10px;
+    border: 2px solid whitesmoke;
+    border-radius: 6px;
+    background: white;
+}
+
+#id_description{
+    width:100%;
+}
+
+
+</style>
+
+{% endblock %}
+{% block body %}
+
+<h2>Amend your Listing {{auction.id}}</h2><hr> 
+
+<form id="box" action = "{% url 'amend_listing' auction.id %}" method="post">
+    {% csrf_token %}
+    {{form}}
+    <input class="btn btn-primary" type="submit" value="Confirm Amend"> 
+</form>
+
+{% endblock %}
+
+<!-- delete previously manually created form
+
+<form id="box" action = "{% url 'amend_listing' auction.id %}" method="post"> 
+    {% csrf_token %}   
+    <label>Image url <input class="form-control" type="url" name="url" value="{{url}}" ></label>   
+    <label>Item Title <input class="form-control" type="text" autocomplete="off" autofocus name="title" value="{{title}}" maxlength="32"></label>
+    <label>Item Description <textarea  class="form-control" name="description" style="height:500px;">{{description}}</textarea></label>
+    <label>Bid Price <input  class="form-control" type="number" step="0.01" min="0" required autocomplete="off" autofocus name="start_bid" value="{{start_bid}}"></label>
+    <label >Condition <select name="condition" class="form-control" id="inputGroupSelect02" >
+         {% for condition in conditions %}
+        <option value="{{condition.id}}">{{condition.condition}}</option>
+        {% endfor %}
+    </select></label>
+    <div class="form-check">
+    <input class="form-check-input" type="checkbox" name="status" value="True">
+    <label class="form-check-label" for="checkChecked">Available for Sell?</label></div>
+    <label>Category 
+    <select name="category" class="form-control">
+        {% for category in categories %}
+        <option value="{{category.id}}">{{category.category}}</option>
+        {% endfor %}
+    </select></label>
+    <input class="btn btn-primary" type="submit" value="Confirm Amend"> 
+</form>
+
+-->
+
+
