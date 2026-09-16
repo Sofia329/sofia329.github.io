@@ -1,0 +1,30 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div id="new-post">
+        <h2>New Post</h2>
+        <form id="newpost-form">
+            <textarea placeholder="What's happending?"></textarea>
+            <button type="submit" class="btn btn-outline-primary">Post</button>
+        </form>
+    </div>
+  
+    <br>
+    <div id="all-posts-container">
+        <h2>All Post</h2>
+        <div id="all-posts">
+        </div>
+        <button id="prev-btn1" class="btn btn-outline-primary" style = "display: inline-block;">Previous</button>
+        <button id="next-btn1" class="btn btn-outline-primary" style = "display: inline-block;">Next</button>
+    </div>
+
+
+
+    <div id="user-profile">
+    </div>
+{% endblock %}
+
+{% block script %}
+<script src = "{% static 'network/allposts.js'%}"></script>
+{% endblock %}

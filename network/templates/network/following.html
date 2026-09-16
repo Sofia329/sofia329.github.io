@@ -1,0 +1,34 @@
+{% extends "network/layout.html" %}
+
+
+{% block body %}
+<div id="following-posts">
+    <h2>My Followings:</h2> <br>
+        {% for following in following %}
+        <li>{{following.username}}</li>
+        {% empty %}
+        No Following Available
+        {% endfor %}
+    </P>
+    <h2>Posts</h2><br>
+    {% for post in posts %}
+        <div class = "posts">
+        <strong>Poster: </strong> {{post.poster}}
+        <strong>Content: </strong> {{post.content}}
+        <strong>Likes: </strong> {{post.likes}}
+        <strong>TimeStamp: </strong> {{post.timestamp}}
+        </div>
+    {% empty %}
+    No Posts Available
+    {% endfor %}
+    
+    {% if posts.has_previous %}
+        <a href="?page={{posts.previous_page_number}}"><button type="button" class = "btn btn-outline-primary">Previous</button></a>
+    {% endif %}
+    
+    {% if posts.has_next %}
+        <a href="?page={{posts.next_page_number}}"><button type="button" class = "btn btn-outline-primary">Next</button></a>
+    {% endif %}
+
+</div>
+{% endblock %}
