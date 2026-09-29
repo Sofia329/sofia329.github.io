@@ -23,7 +23,7 @@ The database for the CS50 SQL Final Project includes all entites necessary for t
 
 ##### Views:
 
-* Order_Book: This view provides users with a convenient way to view the order book for a particular stock. Through the order book, it displays the best bid and best ask prices, along with their associated bid/ask sizes, as placed via limit orders.
+- **Order_Book**: This view provides users with a convenient way to view the order book for a particular stock. Through the order book, it displays the best bid and best ask prices, along with their associated bid/ask sizes, as placed via limit orders.
 
  The design of the order book view strictly follows the price-first, time-second trading rules, as denoted in the CTE temp table which `price desc/asc, time desc`, The order book is separated into two sections: one for bids and one for asks. Each section displays the top 5 best bid/ask levels and their corresponding sizes.
 
