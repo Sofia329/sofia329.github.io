@@ -15,7 +15,11 @@ such that the portfolio risk adjusted rate can be maximized. Alternatively, the 
 
 A risk-averse investor, when taking on additional risk, expects proportionally higher returns. This portfolio optimization strategy scientifically helps these risk-averse investors make rational decisions about their capital allocation - such as how much of their capital to allocate among stocks in their portofio, so that the portfolio return is maximized given any certain level of risk
 
-### Usage
+### Usage & Installation 
+
+Install the below required python third party libraries
+
+```pip install -r ./requirement.txt```
 
 The program takes compulsory command line arguments, and using python library **Argparse** to convert the user's entered stocks into a python list
 
