@@ -19,7 +19,9 @@ A risk-averse investor, when taking on additional risk, expects proportionally h
 
 Install the below required python third party libraries
 
-```pip install -r ./requirement.txt```
+```
+pip install -r ./requirement.txt
+```
 
 The program takes compulsory command line arguments, and using python library **Argparse** to convert the user's entered stocks into a python list
 
