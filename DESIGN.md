@@ -30,7 +30,7 @@ The database for the CS50 SQL Final Project includes all entites necessary for t
 
 ##### Triggers:
 
-1.**Update balance**: Once a row is inserted into the trades table, a trigger will update the cash balance for the user based on the trade notional.
+1.<small>**Update balance**: Once a row is inserted into the trades table, a trigger will update the cash balance for the user based on the trade notional.</small>
 2.**Update positon**: Once a row is inserted into the trades table, a trigger will update the shares inventory for the user based on the trade quantity.
 
 If either the update balance trigger or the update position trigger violates a column check constraint in the balances or positions table, the transaction will be rolled back, meaning no changes will be made, including the insertion into the trades table.
