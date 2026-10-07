@@ -21,17 +21,14 @@ The database for the CS50 SQL Final Project includes all entites necessary for t
 
 **Out of scope** are elements like transaction fees, brokerage, counterparties, etc.
 
-##### Views:
-<p style="font-size: 14px;">This is slightly smaller.</p>
+#### Views:
 
-<small>This is even smaller.</small>
-
-- **Order_Book**: This view provides users with a convenient way to view the order book for a particular stock. Through the order book, it displays the best bid and best ask prices, along with their associated bid/ask sizes, as placed via limit orders.
+1. **Order_Book**: This view provides users with a convenient way to view the order book for a particular stock. Through the order book, it displays the best bid and best ask prices, along with their associated bid/ask sizes, as placed via limit orders.
 
  The design of the order book view strictly follows the price-first, time-second trading rules, as denoted in the CTE temp table which `price desc/asc, time desc`, The order book is separated into two sections: one for bids and one for asks. Each section displays the top 5 best bid/ask levels and their corresponding sizes.
 
 
-##### Triggers:
+#### Triggers:
 
 1.<small>**Update balance**: Once a row is inserted into the trades table, a trigger will update the cash balance for the user based on the trade notional.</small>
 2.**Update positon**: Once a row is inserted into the trades table, a trigger will update the shares inventory for the user based on the trade quantity.
