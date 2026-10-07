@@ -27,7 +27,7 @@ To understand how to use the program, user can type `python project.py -h` in te
 
 The Sharpe Ratio is the key metric for this program. It is defined as the excess return of the portfolio over the risk-free rate, divided by the portfolio's volatility. In other words, it measures the risk-adjusted return - the higher, the better.
 
-### Risk Free Factor
+#### Risk Free Factor
 
 - assume the risk free rate is the 3-Month US Treasury Bill Yield, according to [Market Yield on U.S. Treasury Securities at 3-Month Constant Maturity, Quoted on an Investment Basis](https://fred.stlouisfed.org/series/dgs3mo), risk free rate is quoted as 4.17% in the program.
 
