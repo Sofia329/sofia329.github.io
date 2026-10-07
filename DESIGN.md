@@ -22,6 +22,9 @@ The database for the CS50 SQL Final Project includes all entites necessary for t
 **Out of scope** are elements like transaction fees, brokerage, counterparties, etc.
 
 ##### Views:
+<p style="font-size: 14px;">This is slightly smaller.</p>
+
+<small>This is even smaller.</small>
 
 - **Order_Book**: This view provides users with a convenient way to view the order book for a particular stock. Through the order book, it displays the best bid and best ask prices, along with their associated bid/ask sizes, as placed via limit orders.
 
