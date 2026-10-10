@@ -10,7 +10,7 @@ The database for the CS50 SQL Final Project includes all entites necessary for t
 
 ## Scope
 
-##### Tables:
+### Tables:
 
 - **Trades**, including the basic information for executed transactions, linking back to the Orders table. A trade may correspond to a single order when the order is filled in one execution, or it may correspond to a partial fill portion when the order is partially filled, or multipe trades may correspond to multiple executions of an order which is filled in different shapes.
 - **Users**, including basic user information.
@@ -21,16 +21,16 @@ The database for the CS50 SQL Final Project includes all entites necessary for t
 
 **Out of scope** are elements like transaction fees, brokerage, counterparties, etc.
 
-#### Views:
+### Views:
 
 1. **Order_Book**: This view provides users with a convenient way to view the order book for a particular stock. Through the order book, it displays the best bid and best ask prices, along with their associated bid/ask sizes, as placed via limit orders.
 
  The design of the order book view strictly follows the price-first, time-second trading rules, as denoted in the CTE temp table which `price desc/asc, time desc`, The order book is separated into two sections: one for bids and one for asks. Each section displays the top 5 best bid/ask levels and their corresponding sizes.
 
 
-#### Triggers:
+### Triggers:
 
-1.<small>**Update balance**: Once a row is inserted into the trades table, a trigger will update the cash balance for the user based on the trade notional.</small>
+1.**Update balance**: Once a row is inserted into the trades table, a trigger will update the cash balance for the user based on the trade notional.
 2.**Update positon**: Once a row is inserted into the trades table, a trigger will update the shares inventory for the user based on the trade quantity.
 
 If either the update balance trigger or the update position trigger violates a column check constraint in the balances or positions table, the transaction will be rolled back, meaning no changes will be made, including the insertion into the trades table.
