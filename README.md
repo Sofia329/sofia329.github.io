@@ -45,9 +45,9 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
     - [Geometric Brownian Motion](#geometric-brownian-motion-background)
     - [Draw Random Values](#standard-normal-values)
     - [Run Simulation](#simulation-stock-prices)
-5. [Option Greeks](#option-greeks)
-6. [Delta Hedging](#hedging-suggestion)
-7. [How To Compile](#how-to-compile)
+4. [Option Greeks](#option-greeks)
+5. [Delta Hedging](#hedging-suggestion)
+6. [How To Compile](#how-to-compile)
 
 ---
 > ### Prework
