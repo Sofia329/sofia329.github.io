@@ -75,7 +75,7 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
 
 > ### Black Schole Model - BSM Model
 
-1. #### Model Assumptions
+3. #### Model Assumptions
 
     1. There is no Arbitrage
     2. The price of the underlying asset follows a lognormal distribution
@@ -85,8 +85,7 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
     6. Markets are frictionless - no transaction costs, taxes, or restriction on short sales
     7. Option can only be exercised at maturity, i.e. they are European -style
 
-
-2. #### BSM Model Formulas
+4. #### BSM Model Formulas
 
     The value of a call option is given by:
 
