@@ -49,7 +49,7 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
 5. [Delta Hedging](#hedging-suggestion)
 6. [How To Compile](#how-to-compile)
 
----
+
 > ### Prework
 
 In `compute_normal.c` file, i have defined two functions for converting a z-score to a cumulative probability funtion via error function
