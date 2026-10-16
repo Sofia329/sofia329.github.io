@@ -81,7 +81,6 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
 
 <a id="model-assumptions"></a>
 1. #### Model Assumptions
-
     - There is no Arbitrage
     - The price of the underlying asset follows a lognormal distribution
     - The continous risk-free rate of interest is constant and known with certainty
@@ -89,42 +88,42 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
     - The underlying asset has no cash flow, such as dividends or interest payments
     - Markets are frictionless - no transaction costs, taxes, or restriction on short sales
     - Option can only be exercised at maturity, i.e. they are European -style
-    - 
-<a id="bsm-model-formulas"></a>
+
+   <a id="bsm-model-formulas"></a>
 2. #### BSM Model Formulas
-
-The value of a call option is given by:
-
-$$C_0 = S_0 \times N(d_1) - Ke^{-rT} \times N(d_2)$$
-
-The value of a put option is given by:
-
-$$P_0 = K e^{-rT} N(-d_2) - S_0 N(-d_1)$$
-
-The d1 is a z-score for computing the delta N_d1, which measures how much the option price changes when underlying          stock price changes by $1.
-
-$$d_1 = \frac{\ln\left(\frac{S_0}{K}\right) + \left[r + \left(\frac{\sigma^2}{2}\right)\right]T}{\sigma\sqrt{T}}$$
-
-The d2 is a z-score for compute the probability of exercise in-the-money at expiration, which is N_d2.
-
-$$d_2 = d_1 - \sigma\sqrt{T}$$
-
-
-First compute d1 and d2, code denoted by
-```
-double d1 = (log(S/K)+ (r + sigma *sigma/2)* T)/(sigma * sqrt(T));
-double d2 = d1 - sigma*sqrt(T);
-```
-Then compute N(d1) and N(d2), it called the CDF_Normal function, code denoted by
-```
-double N_pos_d1 = CDF_Normal(d1);
-double N_pos_d2 = CDF_Normal(d2);
-```
-Finally compute the call option price or put option price, code denoted by
-```
-double C = S * N_pos_d1 - K * exp(-r*T) * N_pos_d2;
-double P = K * exp(-r*T) * N_neg_d2 - S * N_neg_d1;
-```
+   
+    The value of a call option is given by:
+    
+    $$C_0 = S_0 \times N(d_1) - Ke^{-rT} \times N(d_2)$$
+    
+    The value of a put option is given by:
+    
+    $$P_0 = K e^{-rT} N(-d_2) - S_0 N(-d_1)$$
+    
+    The d1 is a z-score for computing the delta N_d1, which measures how much the option price changes when underlying          stock price changes by $1.
+    
+    $$d_1 = \frac{\ln\left(\frac{S_0}{K}\right) + \left[r + \left(\frac{\sigma^2}{2}\right)\right]T}{\sigma\sqrt{T}}$$
+    
+    The d2 is a z-score for compute the probability of exercise in-the-money at expiration, which is N_d2.
+    
+    $$d_2 = d_1 - \sigma\sqrt{T}$$
+    
+    
+    First compute d1 and d2, code denoted by
+    ```
+    double d1 = (log(S/K)+ (r + sigma *sigma/2)* T)/(sigma * sqrt(T));
+    double d2 = d1 - sigma*sqrt(T);
+    ```
+    Then compute N(d1) and N(d2), it called the CDF_Normal function, code denoted by
+    ```
+    double N_pos_d1 = CDF_Normal(d1);
+    double N_pos_d2 = CDF_Normal(d2);
+    ```
+    Finally compute the call option price or put option price, code denoted by
+    ```
+    double C = S * N_pos_d1 - K * exp(-r*T) * N_pos_d2;
+    double P = K * exp(-r*T) * N_neg_d2 - S * N_neg_d1;
+    ```
 
 > ### Monte Carlo Simulation
 
