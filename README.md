@@ -57,7 +57,7 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
 
 1. #### Cumulative Distribution Function
 
-    It describes the probability that a random variable is less than or equal to a given value, in which the z-score is the input to the function, and it returns the cumulative probability that is less than or equal to zscore.
+    - It describes the probability that a random variable is less than or equal to a given value, in which the z-score is the input to the function, and it returns the cumulative probability that is less than or equal to zscore.
     This is used later in the BSM model to convert the d1 and d2 values into cumulative probabilities.
     ```
     double CDF_Normal(double z) {
