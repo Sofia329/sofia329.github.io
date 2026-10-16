@@ -40,7 +40,7 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
    - [Cumulative Distribution Function](#cumulative-distribution-function)
    - [Probability Density Function](#probability-density-function)
 2. [Black Schole Model](#black-schole-model-bsm-model)
-   - [Model Assumptions](#testing)
+   - [Model Assumptions](#model-assumptions)
    - [BSM Model Formulas](#bsm-model-formulas)
 3. [Monte Carlo Simulation](#monte-carlo-simulation)
    - [Geometric Brownian Motion](#geometric-brownian-motion-background)
@@ -50,7 +50,7 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
 5. [Delta Hedging](#hedging-suggestion)
 6. [How To Compile](#how-to-compile)
 
-
+---
 > ### Prework
 
 In `compute_normal.c` file, i have defined two functions for converting a z-score to a cumulative probability funtion via error function
@@ -73,10 +73,11 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
         return exp(- z * z / 2)/(sqrt( 2 * PI));
     }
     ```
+---
 
 > ### Black Schole Model BSM Model
 
-1. #### testing
+1. #### Model Assumptions
 
     1. There is no Arbitrage
     2. The price of the underlying asset follows a lognormal distribution
