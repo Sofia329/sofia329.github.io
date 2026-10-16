@@ -73,7 +73,7 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
     }
     ```
 
-> ### Black Schole Model Bsm Model
+> ### Black Schole Model BSM Model
 
 1. #### Model Assumptions
 
