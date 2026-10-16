@@ -57,11 +57,11 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
 
 1. #### Cumulative Distribution Function
 
-    - It describes the probability that a random variable is less than or equal to a given value, in which the z-score is the input to the function, and it returns the cumulative probability that is less than or equal to zscore.
-    This is used later in the BSM model to convert the d1 and d2 values into cumulative probabilities.
+    It describes the probability that a random variable is less than or equal to a given value, in which the z-score is the input to the function, and it returns the cumulative probability that is less than or equal to zscore.
+    this is used later in the BSM model to convert the d1 and d2 values into cumulative probabilities.
     ```
     double CDF_Normal(double z) {
-        return 0.5 * (1 + erf(z/sqrt(2)));
+    return 0.5 * (1 + erf(z/sqrt(2)));
     }
     ```
 
@@ -128,31 +128,30 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
 1. #### Geometric Brownian Motion Background
    
     Monte Carlo Simulation is based of the same assumptions that stock price follows Geometric Brownian Motion (GBM):
-
+    
     Theortically Formula for GBM (based off continous time)
-
+    
     $$dS_t = \mu S_t dt + \sigma S_t dW_t$$
-
+    
     Mathematically Formula for GBM (based off discrete time intervals)
-
+    
     $$S_{t+\Delta t} = S_t \cdot \exp\left( \left( r - \frac{\sigma^2}{2} \right) \Delta t + \sigma \sqrt{\Delta t} \cdot Z \right)$$
-
+    
     Theoritically, the stock price forecast is determined by two components:
-
+    
     - Drift Item (μ·dt): this predict the stock trend, which is determinstic
     - Random Shock (σ·dW_t): this is the unpredictable random fluctuation driven by a wiener process
-
+    
     where dW<sub>t</sub> is the **Wiener Process** (same meaning as random walk, but random walk is represent discrete steps, while, wiener process is represent continuously steps). The key insight is that the random shock to the stock price is normally distributed.
-
-    Therefore, to model the Monte Carlo Simulation, we draw random values from a standard normal distribution to represent dW<sub>t</sub>.
-   
-3. #### Standard Normal Values
+    
+    Therefore, to model the Monte Carlo Simulation, we draw random values from a standard normal distribution to represent dW<sub>t</sub>.  
+2. #### Standard Normal Values
 
     - in C language, it has `math.h` library which contains a `rand()` function, which generates random integers from a uniform distribution, each time called this rand() function, it will return a random integer between 0 and RAND_MAX.
     - however, to simulate stock price, which follows a Geometric Brownian Motion, that there is a random nosie determines the stock price, and the noise is following a standard normal distribution.
     - therefore, BOX-MULLER transformation is applied to convert the values draw from uniform distribution (each value has same probability being picked) to the values draw from standard normal distribution values.
     - each time box-muller algorithms will take two inputs/values draw from uniform distribution and will be able to compute two values follows standard normal distribution.
-
+    
     > Disclaimer: given the complexity to return and save the two values from box-muller algorithms, I used only one value from box-muller algorithms each time calling the `standard_normal_generators` function, which defined as below:
 
     ```
