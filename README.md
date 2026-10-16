@@ -1,4 +1,4 @@
-# Euporean Option Pricing with Black Scholes Merton Model and Monte Carlo Simulation
+# European Option Pricing with Black Scholes Merton Model and Monte Carlo Simulation
 
 By Sofia
 
@@ -21,6 +21,7 @@ Hence, the below project will write code to implement both BSM and Monte Carlo t
 The overview scope of the program includes pricing options using the Black-Scholes Model, then Monte Carlo Simulation, followed by computing Option Greeks to provide more insights into the option risks, and finally providing a delta hedging suggestion to option traders/investors.
 
 ## Usage
+
 Both the BSM model and Monte Carlo Simulation requires the same inputs to compute option prices. When running the program, it will ask users to input a few parameters, including:
 
     - Option Type (Call of Put)
@@ -41,6 +42,7 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
     - [Model Assumptions](#model-assumptions)
     - [BSM Model Formulas](#bsm-model-formulas)
 3. [Monte Carlo Simulation](#monte-carlo-simulation)
+    - [Geometric Brownian Motion](#geometric-brownian-motion-background)
     - [Draw Random Values](#standard-normal-values)
     - [Run Simulation](#simulation-stock-prices)
 4. [Option Greeks](#option-greeks)
@@ -94,11 +96,11 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
 
     $$P_0 = K e^{-rT} N(-d_2) - S_0 N(-d_1)$$
 
-    The d1 is a z-score for computing the delta, which measures how much the option price changes when underlying stock price changes by $1.
+    The d1 is a z-score for computing the delta N_d1, which measures how much the option price changes when underlying stock price changes by $1.
 
     $$d_1 = \frac{\ln\left(\frac{S_0}{K}\right) + \left[r + \left(\frac{\sigma^2}{2}\right)\right]T}{\sigma\sqrt{T}}$$
 
-    The d2 is a z-score for compute the probability of exercise in-the-money at expiration
+    The d2 is a z-score for compute the probability of exercise in-the-money at expiration, which is N_d2.
 
     $$d_2 = d_1 - \sigma\sqrt{T}$$
 
@@ -123,13 +125,28 @@ double P = K * exp(-r*T) * N_neg_d2 - S * N_neg_d1;
 
 > ### Monte Carlo Simulation
 
-Monte Carlo Simulation is based of the same assumptions that stock price is follows a Geometric Brownian Motion (GBM):
+1. #### Geometric Brownian Motion Background
+    Monte Carlo Simulation is based of the same assumptions that stock price follows Geometric Brownian Motion (GBM):
 
-$$dS_t = \mu S_t dt + \sigma S_t dW_t$$
+    Theortically Formula for GBM (based off continous time)
 
-where dW<sub>t</sub> is a **Wiener Process** (same as random walk, but random walk is represent discrete, while, wiener process is represent continously). The key insight is that the random shock to the stock price is normally distributed
+    $$dS_t = \mu S_t dt + \sigma S_t dW_t$$
 
-1. #### Standard Normal Values
+    Mathematically Formula for GBM (based off discrete time intervals)
+
+    $$S_{t+\Delta t} = S_t \cdot \exp\left( \left( r - \frac{\sigma^2}{2} \right) \Delta t + \sigma \sqrt{\Delta t} \cdot Z \right)$$
+
+    Theoritically, the stock price forecast is determined by two components:
+
+    - Drift Item (μ·dt): this predict the stock trend, which is determinstic
+    - Random Shock (σ·dW_t): this is the unpredictable random fluctuation driven by a wiener process
+
+    where dW<sub>t</sub> is the **Wiener Process** (same meaning as random walk, but random walk is represent discrete steps, while, wiener process is represent continuously steps). The key insight is that the random shock to the stock price is normally distributed.
+
+    Therefore, to model the Monte Carlo Simulation, we draw random values from a standard normal distribution to represent dW<sub>t</sub>.
+
+
+2. #### Standard Normal Values
 
     - in C language, it has `math.h` library which contains a `rand()` function, which generates random integers from a uniform distribution, each time called this rand() function, it will return a random integer between 0 and RAND_MAX.
     - however, to simulate stock price, which follows a Geometric Brownian Motion, that there is a random nosie determines the stock price, and the noise is following a standard normal distribution.
@@ -137,6 +154,7 @@ where dW<sub>t</sub> is a **Wiener Process** (same as random walk, but random wa
     - each time box-muller algorithms will take two inputs/values draw from uniform distribution and will be able to compute two values follows standard normal distribution.
 
     > Disclaimer: given the complexity to return and save the two values from box-muller algorithms, I used only one value from box-muller algorithms each time calling the `standard_normal_generators` function, which defined as below:
+
     ```
     double standard_normal_generators(void){
 
@@ -151,7 +169,7 @@ where dW<sub>t</sub> is a **Wiener Process** (same as random walk, but random wa
         return Z;
     }
     ```
-2. #### Simulation Stock Prices
+3. #### Simulation Stock Prices
 
     To simulate the asset price/underlying stock price movement, I set a path of 10,000 and a step of T * 252 trading days.
 
@@ -170,7 +188,7 @@ where dW<sub>t</sub> is a **Wiener Process** (same as random walk, but random wa
 - Delta: meansures how much option prices changes per unit change of underlying stock price.
 - Gamma: measures how much delta changes per unit change of underlying stock price.
 - Theta: measures how much the option prices decreases each day as time passes, options lose time value as expiration approaches.
-- Vega: measures how much the option price changes when implied volatility changes by 1%.
+- Vega: measures how much the option price changes when stock volatility changes by 1%.
 - Rho: measures how much the option price changes when the risk-free interest rate changes by 1%.
 
 The below snapshot is an example of output which displays the option greeks based on user input.
@@ -191,6 +209,7 @@ The raw way to compile is use clang compiler, by type in you terminal the below 
 clang -o output main.c greeks.c monte_carlo.c black_scholes.c compute_normal.c  -lm -lcs50
 ```
 This will generate a `output*` file output which is the compiled file, to run the program use './'
+
 ```
 ./output
 ```
