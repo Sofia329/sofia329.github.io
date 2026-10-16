@@ -81,13 +81,13 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
 
 1. #### Model Assumptions
 
-1. There is no Arbitrage
-2. The price of the underlying asset follows a lognormal distribution
-3. The continous risk-free rate of interest is constant and known with certainty
-4. The volatility of the underlying asset is constant and known.
-5. The underlying asset has no cash flow, such as dividends or interest payments
-6. Markets are frictionless - no transaction costs, taxes, or restriction on short sales
-7. Option can only be exercised at maturity, i.e. they are European -style
+There is no Arbitrage
+The price of the underlying asset follows a lognormal distribution
+The continous risk-free rate of interest is constant and known with certainty
+The volatility of the underlying asset is constant and known.
+The underlying asset has no cash flow, such as dividends or interest payments
+Markets are frictionless - no transaction costs, taxes, or restriction on short sales
+Option can only be exercised at maturity, i.e. they are European -style
 
 2. #### BSM Model Formulas
 
