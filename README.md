@@ -25,7 +25,7 @@ The overview scope of the program includes pricing options using the Black-Schol
 
 Both the BSM model and Monte Carlo Simulation requires the same inputs to compute option prices. When running the program, it will ask users to input a few parameters, including:
     
-- Option Type (Call of Put)
+- Option Type (Call or Put)
 - Strike Price
 - Current Stock Price
 - Time to Expiration in fraction of years (e.g. 0.5 for half a year, 2 for two years)
