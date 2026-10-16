@@ -24,13 +24,13 @@ The overview scope of the program includes pricing options using the Black-Schol
 ## Usage
 
 Both the BSM model and Monte Carlo Simulation requires the same inputs to compute option prices. When running the program, it will ask users to input a few parameters, including:
-
-    - Option Type (Call of Put)
-    - Strike Price
-    - Current Stock Price
-    - Time to Expiration in fraction of years (e.g. 0.5 for half a year, 2 for two years)
-    - Risk-free Rate
-    - Stock Volatility
+    
+- Option Type (Call of Put)
+- Strike Price
+- Current Stock Price
+- Time to Expiration in fraction of years (e.g. 0.5 for half a year, 2 for two years)
+- Risk-free Rate
+- Stock Volatility
 
 ![Figure 1: Examples of User Input](image.png)
 
@@ -89,7 +89,8 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
     - The underlying asset has no cash flow, such as dividends or interest payments
     - Markets are frictionless - no transaction costs, taxes, or restriction on short sales
     - Option can only be exercised at maturity, i.e. they are European -style
-<a id="bsm-model-formulas"></a>
+
+    <a id="bsm-model-formulas"></a>
 2. #### BSM Model Formulas
     The value of a call option is given by:
    
@@ -126,7 +127,7 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
 
 > ### Monte Carlo Simulation
 
-<a id="geometric-brownian-motion-background"></a>
+    <a id="geometric-brownian-motion-background"></a>
 1. #### Geometric Brownian Motion Background
 
 
@@ -149,7 +150,7 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
     
     Therefore, to model the Monte Carlo Simulation, we draw random values from a standard normal distribution to represent dW<sub>t</sub>.
 
-   <a id="standard-normal-values"></a>
+    <a id="standard-normal-values"></a>
 2. #### Standard Normal Values
 
     - in C language, it has `math.h` library which contains a `rand()` function, which generates random integers from a uniform distribution, each time called this rand() function, it will return a random integer between 0 and RAND_MAX.
@@ -173,7 +174,7 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
         return Z;
     }
     ```
-   <a id="simulation-stock-prices"></a>
+    <a id="simulation-stock-prices"></a>
 3. #### Simulation Stock Prices
 
     To simulate the asset price/underlying stock price movement, I set a path of 10,000 and a step of T * 252 trading days.
