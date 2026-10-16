@@ -38,7 +38,7 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
 1. [Prework](#prework)
    - [Cumulative Distribution Function](#cumulative-distribution-function)
    - [Probability Density Function](#probability-density-function)
-2. [Black Schole Model](#black-schole-model-bsm-model)
+2. [Black Schole Model](#black-schole-model---bsm-model)
    - [Model Assumptions](#model-assumptions)
    - [BSM Model Formulas](#bsm-model-formulas)
 3. [Monte Carlo Simulation](#monte-carlo-simulation)
