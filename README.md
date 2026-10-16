@@ -38,7 +38,7 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
 1. [Prework](#prework)
    - [Cumulative Distribution Function](#cumulative-distribution-function)
    - [Probability Density Function](#probability-density-function)
-2. [Black Schole Model](#black-schole-model---bsm-model)
+2. [Black Schole Model](#black-schole-model-bsm-model)
    - [Model Assumptions](#model-assumptions)
    - [BSM Model Formulas](#bsm-model-formulas)
 3. [Monte Carlo Simulation](#monte-carlo-simulation)
@@ -73,7 +73,7 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
     }
     ```
 
-> ### Black Schole Model - BSM Model
+> ### Black Schole Model BSM Model
 
 1. #### Model Assumptions
 
