@@ -36,18 +36,18 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
 
 ## Table of Content
 1. [Prework](#prework)
-    - [Cumulative Distribution Function](#cumulative-distribution-function)
-    - [Probability Density Function](#probability-density-function)
-2. [Black Schole Model](#black-schole-model-bsm-model)
+   - [Cumulative Distribution Function](#cumulative-distribution-function)
+   - [Probability Density Function](#probability-density-function)
+3. [Black Schole Model](#black-schole-model-bsm-model)
     - [Model Assumptions](#model-assumptions)
     - [BSM Model Formulas](#bsm-model-formulas)
-3. [Monte Carlo Simulation](#monte-carlo-simulation)
+4. [Monte Carlo Simulation](#monte-carlo-simulation)
     - [Geometric Brownian Motion](#geometric-brownian-motion-background)
     - [Draw Random Values](#standard-normal-values)
     - [Run Simulation](#simulation-stock-prices)
-4. [Option Greeks](#option-greeks)
-5. [Delta Hedging](#hedging-suggestion)
-6. [How To Compile](#how-to-compile)
+5. [Option Greeks](#option-greeks)
+6. [Delta Hedging](#hedging-suggestion)
+7. [How To Compile](#how-to-compile)
 
 ---
 > ### Prework
