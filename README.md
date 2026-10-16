@@ -77,6 +77,8 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
 
 > ### Black Schole Model BSM Model
 
+jijjujuj
+
 1. #### Model Assumptions
 
     1. There is no Arbitrage
