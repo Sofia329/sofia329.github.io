@@ -42,7 +42,6 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
     - [Model Assumptions](#model-assumptions)
     - [BSM Model Formulas](#bsm-model-formulas)
 3. [Monte Carlo Simulation](#monte-carlo-simulation)
-    - [Geometric Brownian Motion](#geometric-brownian-motion-background)
     - [Draw Random Values](#standard-normal-values)
     - [Run Simulation](#simulation-stock-prices)
 4. [Option Greeks](#option-greeks)
