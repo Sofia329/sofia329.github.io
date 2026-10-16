@@ -20,6 +20,7 @@ Hence, the below project will write code to implement both BSM and Monte Carlo t
 
 The overview scope of the program includes pricing options using the Black-Scholes Model, then Monte Carlo Simulation, followed by computing Option Greeks to provide more insights into the option risks, and finally providing a delta hedging suggestion to option traders/investors.
 
+
 ## Usage
 
 Both the BSM model and Monte Carlo Simulation requires the same inputs to compute option prices. When running the program, it will ask users to input a few parameters, including:
@@ -125,8 +126,10 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
 
 > ### Monte Carlo Simulation
 
+<a id="geometric-brownian-motion-background"></a>
 1. #### Geometric Brownian Motion Background
-   
+
+
     Monte Carlo Simulation is based of the same assumptions that stock price follows Geometric Brownian Motion (GBM):
     
     Theortically Formula for GBM (based off continous time)
@@ -144,7 +147,9 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
     
     where dW<sub>t</sub> is the **Wiener Process** (same meaning as random walk, but random walk is represent discrete steps, while, wiener process is represent continuously steps). The key insight is that the random shock to the stock price is normally distributed.
     
-    Therefore, to model the Monte Carlo Simulation, we draw random values from a standard normal distribution to represent dW<sub>t</sub>.  
+    Therefore, to model the Monte Carlo Simulation, we draw random values from a standard normal distribution to represent dW<sub>t</sub>.
+
+   <a id="standard-normal-values"></a>
 2. #### Standard Normal Values
 
     - in C language, it has `math.h` library which contains a `rand()` function, which generates random integers from a uniform distribution, each time called this rand() function, it will return a random integer between 0 and RAND_MAX.
@@ -168,7 +173,8 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
         return Z;
     }
     ```
-4. #### Simulation Stock Prices
+   <a id="simulation-stock-prices"></a>
+3. #### Simulation Stock Prices
 
     To simulate the asset price/underlying stock price movement, I set a path of 10,000 and a step of T * 252 trading days.
 
