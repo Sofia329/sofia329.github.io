@@ -12,7 +12,7 @@ This project is for "CS50X final project", the topic I selected is to build a Eu
 
 Given Black Scholes is a very famous closed form formula which can compute the European Call/Put Option by simply subsituting the inputs, then it will produce the outputs, which is the option price, or option premium.
 
-In comparison, the Monte Carlo Simulation is using numerical simualtion to approx the option price, it is supposed to closely match the analytic result from the BSM model.
+In comparison, the Monte Carlo Simulation is running numerical simulation to forecast the future stock price S_t, and then average the expected payoff from simulations to get the option price. The result is supposed to closely match the analytic result from the BSM model.
 
 Hence, the below project will write code to implement both BSM and Monte Carlo to compare the result, with the limitation to European Style Option, as it can only exercise upon expiration, which is what BSM model restricted to.
 
@@ -32,7 +32,8 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
 - Risk-free Rate
 - Stock Volatility
 
-![Figure 1: Examples of User Input](image.png)
+
+> ![Figure 1: Examples of User Input](image.png)
 
 
 ## Table of Content
@@ -54,7 +55,7 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
 ---
 > ### Prework
 
-In `compute_normal.c` file, i have defined two functions for converting a z-score to a cumulative probability funtion via error function
+In `compute_normal.c` file, i have defined two functions for converting a z-score to a cumulative probability function via error function from `math.h` library as well as the probability density function use its mathematically expression
 
 1. #### Cumulative Distribution Function
 
@@ -127,7 +128,7 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
 
 > ### Monte Carlo Simulation
 
-    <a id="geometric-brownian-motion-background"></a>
+<a id="geometric-brownian-motion-background"></a>
 1. #### Geometric Brownian Motion Background
 
 
