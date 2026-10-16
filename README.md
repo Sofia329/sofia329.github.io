@@ -88,16 +88,14 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
     - The underlying asset has no cash flow, such as dividends or interest payments
     - Markets are frictionless - no transaction costs, taxes, or restriction on short sales
     - Option can only be exercised at maturity, i.e. they are European -style
-
-   <a id="bsm-model-formulas"></a>
+<a id="bsm-model-formulas"></a>
 2. #### BSM Model Formulas
-   
     The value of a call option is given by:
-    
+   
     $$C_0 = S_0 \times N(d_1) - Ke^{-rT} \times N(d_2)$$
-    
+   
     The value of a put option is given by:
-    
+   
     $$P_0 = K e^{-rT} N(-d_2) - S_0 N(-d_1)$$
     
     The d1 is a z-score for computing the delta N_d1, which measures how much the option price changes when underlying          stock price changes by $1.
@@ -128,6 +126,7 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
 > ### Monte Carlo Simulation
 
 1. #### Geometric Brownian Motion Background
+   
     Monte Carlo Simulation is based of the same assumptions that stock price follows Geometric Brownian Motion (GBM):
 
     Theortically Formula for GBM (based off continous time)
@@ -146,9 +145,8 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
     where dW<sub>t</sub> is the **Wiener Process** (same meaning as random walk, but random walk is represent discrete steps, while, wiener process is represent continuously steps). The key insight is that the random shock to the stock price is normally distributed.
 
     Therefore, to model the Monte Carlo Simulation, we draw random values from a standard normal distribution to represent dW<sub>t</sub>.
-
-
-2. #### Standard Normal Values
+   
+3. #### Standard Normal Values
 
     - in C language, it has `math.h` library which contains a `rand()` function, which generates random integers from a uniform distribution, each time called this rand() function, it will return a random integer between 0 and RAND_MAX.
     - however, to simulate stock price, which follows a Geometric Brownian Motion, that there is a random nosie determines the stock price, and the noise is following a standard normal distribution.
@@ -171,7 +169,7 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
         return Z;
     }
     ```
-3. #### Simulation Stock Prices
+4. #### Simulation Stock Prices
 
     To simulate the asset price/underlying stock price movement, I set a path of 10,000 and a step of T * 252 trading days.
 
