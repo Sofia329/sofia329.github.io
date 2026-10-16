@@ -42,11 +42,12 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
     - [Model Assumptions](#model-assumptions)
     - [BSM Model Formulas](#bsm-model-formulas)
 3. [Monte Carlo Simulation](#monte-carlo-simulation)
+    - [Geometric Brownian Motion](#geometric-brownian-motion-background)
     - [Draw Random Values](#standard-normal-values)
     - [Run Simulation](#simulation-stock-prices)
-4. [Option Greeks](#option-greeks)
-5. [Delta Hedging](#hedging-suggestion)
-6. [How To Compile](#how-to-compile)
+5. [Option Greeks](#option-greeks)
+6. [Delta Hedging](#hedging-suggestion)
+7. [How To Compile](#how-to-compile)
 
 ---
 > ### Prework
@@ -119,8 +120,6 @@ Finally compute the call option price or put option price, code denoted by
 double C = S * N_pos_d1 - K * exp(-r*T) * N_pos_d2;
 double P = K * exp(-r*T) * N_neg_d2 - S * N_neg_d1;
 ```
-
-####
 
 > ### Monte Carlo Simulation
 
