@@ -91,21 +91,21 @@ Option can only be exercised at maturity, i.e. they are European -style
 
 2. #### BSM Model Formulas
 
-    The value of a call option is given by:
+The value of a call option is given by:
 
-    $$C_0 = S_0 \times N(d_1) - Ke^{-rT} \times N(d_2)$$
+$$C_0 = S_0 \times N(d_1) - Ke^{-rT} \times N(d_2)$$
 
-    The value of a put option is given by:
+The value of a put option is given by:
 
-    $$P_0 = K e^{-rT} N(-d_2) - S_0 N(-d_1)$$
+$$P_0 = K e^{-rT} N(-d_2) - S_0 N(-d_1)$$
 
-    The d1 is a z-score for computing the delta N_d1, which measures how much the option price changes when underlying          stock price changes by $1.
+The d1 is a z-score for computing the delta N_d1, which measures how much the option price changes when underlying          stock price changes by $1.
 
-    $$d_1 = \frac{\ln\left(\frac{S_0}{K}\right) + \left[r + \left(\frac{\sigma^2}{2}\right)\right]T}{\sigma\sqrt{T}}$$
+$$d_1 = \frac{\ln\left(\frac{S_0}{K}\right) + \left[r + \left(\frac{\sigma^2}{2}\right)\right]T}{\sigma\sqrt{T}}$$
 
-    The d2 is a z-score for compute the probability of exercise in-the-money at expiration, which is N_d2.
+The d2 is a z-score for compute the probability of exercise in-the-money at expiration, which is N_d2.
 
-    $$d_2 = d_1 - \sigma\sqrt{T}$$
+$$d_2 = d_1 - \sigma\sqrt{T}$$
 
 
 First compute d1 and d2, code denoted by
