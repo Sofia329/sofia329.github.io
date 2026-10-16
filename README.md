@@ -35,6 +35,7 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
 
 
 ## Table of Content
+0. [Testing](#testing)
 1. [Prework](#prework)
    - [Cumulative Distribution Function](#cumulative-distribution-function)
    - [Probability Density Function](#probability-density-function)
@@ -49,8 +50,10 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
 5. [Delta Hedging](#hedging-suggestion)
 6. [How To Compile](#how-to-compile)
 
+#### TESTING
 
-### Prework
+
+> ### Prework
 
 In `compute_normal.c` file, i have defined two functions for converting a z-score to a cumulative probability funtion via error function
 
@@ -73,7 +76,7 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
     }
     ```
 
-### Black Schole Model BSM Model
+> ### Black Schole Model BSM Model
 
 1. #### Model Assumptions
 
@@ -120,7 +123,7 @@ double C = S * N_pos_d1 - K * exp(-r*T) * N_pos_d2;
 double P = K * exp(-r*T) * N_neg_d2 - S * N_neg_d1;
 ```
 
-### Monte Carlo Simulation
+> ### Monte Carlo Simulation
 
 1. #### Geometric Brownian Motion Background
     Monte Carlo Simulation is based of the same assumptions that stock price follows Geometric Brownian Motion (GBM):
