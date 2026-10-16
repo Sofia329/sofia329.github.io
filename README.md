@@ -39,6 +39,7 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
 1. [Prework](#prework)
    - [Cumulative Distribution Function](#cumulative-distribution-function)
    - [Probability Density Function](#probability-density-function)
+   - [Model Assumptions](#model-assumptions)
 2. [Bsm](#bsm)
    - [Model Assumptions](#model-assumptions)
    - [BSM Model Formulas](#bsm-model-formulas)
