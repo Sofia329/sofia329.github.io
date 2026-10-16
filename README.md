@@ -39,7 +39,7 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
 1. [Prework](#prework)
    - [Cumulative Distribution Function](#cumulative-distribution-function)
    - [Probability Density Function](#probability-density-function)
-2. [Black Schole Model](#black-schole-model-bsm-model)
+2. [Black Schole Model](#bsm)
    - [Model Assumptions](#model-assumptions)
    - [BSM Model Formulas](#bsm-model-formulas)
 3. [Monte Carlo Simulation](#monte-carlo-simulation)
@@ -75,7 +75,7 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
     ```
 ---
 
-> ### Black Schole Model BSM Model
+> ### BSM
 
 Black Schole Model is a closed-form formula which direct calculate the option price with a single formula, it doesn;t require to compute the future stock price to calculate the option payoff 
 
