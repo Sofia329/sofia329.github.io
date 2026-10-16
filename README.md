@@ -77,7 +77,7 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
 
 > ### Black Schole Model BSM Model
 
-jijjujuj
+Black Schole Model is a closed-form formula which direct calculate the option price with a single formula, it doesn;t require to compute the future stock price to calculate the option payoff 
 
 1. #### Model Assumptions
 
