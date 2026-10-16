@@ -79,7 +79,7 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
 
 Black Schole Model is a closed-form formula which direct calculate the option price with a single formula, it doesn;t require to compute the future stock price to calculate the option payoff 
 
-<a id="model-assumptions"></a>
+
 1. #### Model Assumptions
 
     - There is no Arbitrage
