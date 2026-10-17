@@ -91,7 +91,7 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
     - Markets are frictionless - no transaction costs, taxes, or restriction on short sales
     - Option can only be exercised at maturity, i.e. they are European -style
 
-    <a id="bsm-model-formulas"></a>
+
 2. #### BSM Model Formulas
     The value of a call option is given by:
    
