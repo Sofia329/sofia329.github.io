@@ -81,9 +81,9 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
 
 Black Schole Model is a closed-form formula which direct calculate the option price with a single formula, it doesn;t require to compute the future stock price to calculate the option payoff 
 
-
-1. #### Model Assumptions
 <a id="model-assumptions"></a>
+1. #### Model Assumptions
+
     - There is no Arbitrage
     - The price of the underlying asset follows a lognormal distribution
     - The continous risk-free rate of interest is constant and known with certainty
@@ -91,10 +91,10 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
     - The underlying asset has no cash flow, such as dividends or interest payments
     - Markets are frictionless - no transaction costs, taxes, or restriction on short sales
     - Option can only be exercised at maturity, i.e. they are European -style
-
-    
+      
+     <a id="bsm-model-formulas"></a>
 2. #### BSM Model Formulas
-<a id="bsm-model-formulas"></a>
+   
     The value of a call option is given by:
    
     $$C_0 = S_0 \times N(d_1) - Ke^{-rT} \times N(d_2)$$
@@ -103,7 +103,7 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
    
     $$P_0 = K e^{-rT} N(-d_2) - S_0 N(-d_1)$$
     
-    The d1 is a z-score for computing the delta N_d1, which measures how much the option price changes when underlying          stock price changes by $1.
+    The d1 is a z-score for computing the delta N_d1, which measures how much the option price changes when underlying stock price changes by $1.
     
     $$d_1 = \frac{\ln\left(\frac{S_0}{K}\right) + \left[r + \left(\frac{\sigma^2}{2}\right)\right]T}{\sigma\sqrt{T}}$$
     
@@ -130,9 +130,8 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
 
 > ### Monte Carlo Simulation
 
-
-1. #### Geometric Brownian Motion Background
 <a id="geometric-brownian-motion-background"></a>
+1. #### Geometric Brownian Motion Background
 
     Monte Carlo Simulation is based of the same assumptions that stock price follows Geometric Brownian Motion (GBM):
     
@@ -153,9 +152,9 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
     
     Therefore, to model the Monte Carlo Simulation, we draw random values from a standard normal distribution to represent dW<sub>t</sub>.
 
-    
+    <a id="standard-normal-values"></a>    
 2. #### Standard Normal Values
-<a id="standard-normal-values"></a>
+
     - in C language, it has `math.h` library which contains a `rand()` function, which generates random integers from a uniform distribution, each time called this rand() function, it will return a random integer between 0 and RAND_MAX.
     - however, to simulate stock price, which follows a Geometric Brownian Motion, that there is a random nosie determines the stock price, and the noise is following a standard normal distribution.
     - therefore, BOX-MULLER transformation is applied to convert the values draw from uniform distribution (each value has same probability being picked) to the values draw from standard normal distribution values.
