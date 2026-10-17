@@ -81,8 +81,9 @@ In `compute_normal.c` file, i have defined two functions for converting a z-scor
 
 Black Schole Model is a closed-form formula which direct calculate the option price with a single formula, it doesn;t require to compute the future stock price to calculate the option payoff 
 
-<a id="model-assumptions"></a>
+
 1. #### Model Assumptions
+<a id="model-assumptions"></a>
     - There is no Arbitrage
     - The price of the underlying asset follows a lognormal distribution
     - The continous risk-free rate of interest is constant and known with certainty
@@ -131,7 +132,7 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
 
 
 1. #### Geometric Brownian Motion Background
-    <a id="geometric-brownian-motion-background"></a>
+<a id="geometric-brownian-motion-background"></a>
 
     Monte Carlo Simulation is based of the same assumptions that stock price follows Geometric Brownian Motion (GBM):
     
@@ -152,9 +153,9 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
     
     Therefore, to model the Monte Carlo Simulation, we draw random values from a standard normal distribution to represent dW<sub>t</sub>.
 
-    <a id="standard-normal-values"></a>
+    
 2. #### Standard Normal Values
-
+<a id="standard-normal-values"></a>
     - in C language, it has `math.h` library which contains a `rand()` function, which generates random integers from a uniform distribution, each time called this rand() function, it will return a random integer between 0 and RAND_MAX.
     - however, to simulate stock price, which follows a Geometric Brownian Motion, that there is a random nosie determines the stock price, and the noise is following a standard normal distribution.
     - therefore, BOX-MULLER transformation is applied to convert the values draw from uniform distribution (each value has same probability being picked) to the values draw from standard normal distribution values.
