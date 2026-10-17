@@ -58,7 +58,7 @@ Both the BSM model and Monte Carlo Simulation requires the same inputs to comput
 In `compute_normal.c` file, i have defined two functions for converting a z-score to a cumulative probability function via error function from `math.h` library as well as the probability density function use its mathematically expression
 
 1. #### Cumulative Distribution Function
-
+   
     It describes the probability that a random variable is less than or equal to a given value, in which the z-score is the input to the function, and it returns the cumulative probability that is less than or equal to zscore.
     this is used later in the BSM model to convert the d1 and d2 values into cumulative probabilities.
     ```
@@ -90,7 +90,10 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
     - The underlying asset has no cash flow, such as dividends or interest payments
     - Markets are frictionless - no transaction costs, taxes, or restriction on short sales
     - Option can only be exercised at maturity, i.e. they are European -style
+
+    
 2. #### BSM Model Formulas
+<a id="bsm-model-formulas"></a>
     The value of a call option is given by:
    
     $$C_0 = S_0 \times N(d_1) - Ke^{-rT} \times N(d_2)$$
@@ -126,9 +129,9 @@ Black Schole Model is a closed-form formula which direct calculate the option pr
 
 > ### Monte Carlo Simulation
 
-<a id="geometric-brownian-motion-background"></a>
-1. #### Geometric Brownian Motion Background
 
+1. #### Geometric Brownian Motion Background
+    <a id="geometric-brownian-motion-background"></a>
 
     Monte Carlo Simulation is based of the same assumptions that stock price follows Geometric Brownian Motion (GBM):
     
