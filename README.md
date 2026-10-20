@@ -5,6 +5,21 @@ By Sofia
 Video overview: (https://youtu.be/rXfWdMdffkA)
 
 
+## Table of Contents
+
+- [Purpose](#purpose)
+- [Target Audience](#target-audience)
+- [Usage & Installation](#usage--installation)
+- [Scope](#scope)
+  - [Risk Free Factor](#risk-free-factor)
+  - [Extract Price Data](#extract-price-data)
+  - [Allocation Weights](#allocation-weights)
+  - [Portfolio Return](#portfolio-return)
+  - [Portfolio Volatility](#portfolio-volatility)
+  - [Optimization](#optimization)
+- [Unit Test](#unit-test)
+- [Limitations](#limitations)
+
 ### Purpose
 
 The program aims to find the optimal weights allocation for each stock that comprises the portfolio,
