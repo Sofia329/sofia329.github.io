@@ -6,7 +6,8 @@ Each project is self-contained and demonstrates a different aspect of modern web
 
 ## Projects Included
 
-### 1. SEARCH
+### 1. SEARCH [Search](https://cs50.harvard.edu/web/projects/0/search/)
+
 A front-end project inspired by Google-style search pages, including:
 - basic search page
 - image search page
@@ -14,7 +15,7 @@ A front-end project inspired by Google-style search pages, including:
 
 This project focuses on HTML and CSS layout design and static page behavior.
 
-### 2. COMMERCE
+### 2. COMMERCE [Commerce]([https://cs50.harvard.edu/web/projects/0/search/](https://cs50.harvard.edu/web/projects/2/commerce/))
 A Django-based auction marketplace similar to eBay, featuring:
 - user registration and login
 - creating listings
@@ -25,7 +26,7 @@ A Django-based auction marketplace similar to eBay, featuring:
 
 This project demonstrates backend development, database modeling, authentication, and Django templates.
 
-### 3. MAIL
+### 3. MAIL [MAIL](https://cs50.harvard.edu/web/projects/3/mail/)
 A simple email client built with Django and JavaScript, including:
 - inbox
 - sent mail
@@ -36,7 +37,7 @@ A simple email client built with Django and JavaScript, including:
 
 This project focuses on building dynamic user interfaces and client-side behavior.
 
-### 4. NETWORK
+### 4. NETWORK [NETWORK](https://cs50.harvard.edu/web/projects/4/network/)
 A social networking web app inspired by Twitter/X, featuring:
 - user accounts
 - creating posts
@@ -47,7 +48,7 @@ A social networking web app inspired by Twitter/X, featuring:
 
 This project covers Django models, user relationships, and interactive front-end behavior.
 
-### 5. WIKI
+### 5. WIKI [WIKI](https://cs50.harvard.edu/web/projects/1/wiki/)
 An encyclopedia-style web app built with Django, featuring:
 - entry listing
 - search functionality
