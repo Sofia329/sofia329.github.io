@@ -1,0 +1,28 @@
+textarea {
+    min-height: 400px;
+}
+
+.emails {
+    border: 1px solid darkgray;
+    color:darkgreen;
+    font-size: 15px;
+    padding:5px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+
+.single_email {
+    display: grid;
+    padding: 10px 5px;
+    grid-template-columns: 150px auto;
+    padding: 10px 30px ;
+    border: 1px solid darkgray;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    text-align:justify;
+}
+
+.btn {
+    margin:5px;
+
+}
