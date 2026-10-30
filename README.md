@@ -15,7 +15,7 @@ A front-end project inspired by Google-style search pages, including:
 
 This project focuses on HTML and CSS layout design and static page behavior.
 
-### 2. COMMERCE (https://cs50.harvard.edu/web/projects/0/search/](https://cs50.harvard.edu/web/projects/2/commerce/)
+### 2. COMMERCE (https://cs50.harvard.edu/web/projects/2/commerce/)
 A Django-based auction marketplace similar to eBay, featuring:
 - user registration and login
 - creating listings
