@@ -1,0 +1,199 @@
+{% extends "trading/layout.html" %}
+
+{% load static %}
+
+{% block title %}stock chart{% endblock %}
+
+{% block style %}
+
+<link rel="stylesheet" href="{% static 'trading/info.css'%}" >
+
+{% endblock %}
+
+
+{% block script %}
+<script src="{% static 'trading/chart.js' %}"></script>
+
+<script>
+    // if the chart & info is render propery, not none, then appear a download button
+    // and click on the download button will download as png in the image folder.
+    document.addEventListener('DOMContentLoaded', function(){
+        const chart = document.querySelector('#single-asset-chart');
+        const info = document.querySelector('#single-asset-info');
+        const ticker = JSON.parse(document.querySelector('#refreshed_info').textContent).ticker;
+
+        if (chart && info){
+            const button = document.createElement('button');
+            button.textContent = 'Take A Snapshot';
+            button.className = "snapshot";
+            document.body.append(button);
+
+            button.addEventListener('click', () => {
+                const refreshBtn = document.querySelector('.refresh')
+                refreshBtn.hidden = true;
+                const target = document.querySelector('#Canvas-Download');
+                html2canvas(target)
+                .then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = 'page.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                    })
+                .catch(error => {alert(error.message);})
+                .finally(()=> {refreshBtn.hidden = false;})
+            });
+        }
+
+        // setInterval Polling for live stream data of the ticker every 5 secs
+        const price = document.querySelector('.price');
+        const change = document.querySelector('.change');
+        const change_percent = document.querySelector('.change_percent');
+        const last_sec_price = {};
+
+        if (price && change && change_percent){
+            setInterval(() => {
+            fetch(`/info?ticker=${ticker}&livestream=true`)
+            .then(response =>response.json())
+            .then(live =>{
+                if(live.liveprice){
+                    price.innerHTML = '<b>Live Price:</b> ' + live.liveprice.price.toFixed(2);
+                    change.innerHTML = '<b>Dollar Change:</b> ' + live.liveprice.change.toFixed(2);
+                    change_percent.innerHTML = '<b>Percent Change:</b> ' + live.liveprice.change_percent.toFixed(2) +'%';
+
+                    // design the green/red flash of liveprice
+                    price.classList.remove('up', 'down');
+                    change.classList.remove('up', 'down');
+                    change_percent.classList.remove('up', 'down');
+
+                    void price.offsetWidth;
+                    void change.offsetWidth;
+                    void change_percent.offsetWidth;
+
+
+
+                    if (live.liveprice.change > 0){
+                        price.classList.add('up');
+                        change.classList.add('up');
+                        change_percent.classList.add('up');
+
+                    } else if (live.liveprice.change < 0) {
+                        price.classList.add('down');
+                        change.classList.add('down');
+                        change_percent.classList.add('down');
+                    }
+                }
+            })
+            .catch(error =>{alert(error.message);})
+        }, 5000);
+    }
+
+
+        // listen to click on the refresh button to get updated metric data to update the table
+        document.querySelector('.refresh').addEventListener( 'click', function() {
+            fetch(`/info?ticker=${ticker}`) // the INFO includes ticker for the first time to fetch for refresh
+            .then (response => response.json())
+            .then(newinfo => {
+                const tbody = document.querySelector('.table');
+                tbody.innerHTML = '';
+                if(!newinfo.INFO) {
+                    tbody.innerHTML = '<tr><td colspan="2">No Information/Metric Available on this Company</td></tr>';
+                    return;
+                }
+                Object.entries(newinfo.INFO).forEach(([key,value]) => {
+                    const row = document.createElement('tr');
+                    const tdKey = document.createElement('td');
+                    const tdValue = document.createElement('td');
+
+                    tdKey.textContent = key;
+                    tdValue.textContent = value === null ? "None" : value;
+
+                    row.append(tdKey);
+                    row.append(tdValue);
+                    tbody.append(row);
+                })
+            })
+            .catch(error=>{
+                alert(error.message);
+            })
+        });
+        // finished the refresh metric with updated data
+    });
+
+</script>
+{% endblock %}
+
+
+
+{% block body %}
+
+<!--------------------------------- Search Bar----------------------------------------------------------------->
+
+<div id="search-single-stock">
+    <form action="{% url 'info' %}", method="post">
+        {% csrf_token %}
+        <input type="text" autofocus autocomplete="off" name="ticker">
+        <input type="submit"value="Query Ticker">
+    </form>
+</div>
+
+{% for message in messages %}
+    {% if message.tags == "error" %}
+        {{message}}
+    {% endif %}
+{% endfor %}
+
+
+<!---------------------------------Price Chart----------------------------------------------------------------->
+
+
+<div id = "Canvas-Download">
+{% if show_chart %}
+<div id="single-asset-chart">
+{{OHLC|json_script:"chart-data"}}
+<h2>{{ fullname }}</h2>
+
+ <div id="liveprice-dashboard">
+    <div class ="price"></div>
+    <div class ="change"></div>
+    <div class ="change_percent"></div>
+ </div>
+
+
+
+<div id="chart1" style = "width: 100%; height: 400px;"></div>
+<div id="chart2" style = "width: 100%; height: 400px;"></div>
+<div id="chart3" style = "width: 100%; height: 400px;"></div>
+</div>
+{% endif %}
+<!---------------------------------Company Metrics----------------------------------------------------------------->
+
+
+{% if show_chart %}
+<h2 style="display: inline-block;"> Information Metrics</h2> <button type = "button" class = "refresh"> Refresh </button>
+<div id="single-asset-info" class="table-card">
+<table class="table table-sm table-hover">
+{% for key,value in INFO.items %}
+    <tr>
+        <td>{{key}}</td>
+        <td>{{value}}</td>
+    </tr>
+{% empty %}
+<tr>
+    <td colspan = "2">No Infomation/Metric Available on this Company</td>
+</tr>
+{% endfor %}
+</table>
+
+<!--INFO is the original metric data, json parse will get the ticker from this INFO for JS AJAX to refresh metric data -->
+{{INFO|json_script:"refreshed_info"}}
+
+</div>
+{% endif %}
+
+</div>
+
+<!-------------------------------------------------------------------------------------------------------------->
+
+{% endblock %}
+
+

@@ -1,0 +1,108 @@
+
+body{
+    font-size: 20px;
+    font-weight: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+form {
+    padding: 50px;
+    font-size: 16px;
+    border: 1px solid #dfe1e5;
+    border-radius: 20px;
+    outline: none;
+    background: whitesmoke;
+    border-color: whitesmoke;
+}
+
+form input {
+    font-weight: 100px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 20px;
+    outline: none;
+    font-size: 25px;
+}
+
+form input:focus {
+  outline: 2px solid Highlight;
+}
+
+table {
+    table-layout: fixed;
+}
+
+table td:first-child {
+    width: 40%;
+    vertical-align:middle;
+    font-size-adjust: 0.545;
+}
+
+#liveprice-dashboard{
+    display: flex;
+    gap: 20px;
+    padding: 15px 20px;
+    border-radius: 20px;
+    border: 2px solid #e5e7eb;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-variant-numeric: tabular-nums;
+}
+
+.up {
+    animation: flashgreen 1.5s ease-out forwards;
+}
+.down {
+    animation: flashred 1.5s ease-out forwards;
+}
+
+@keyframes flashgreen {
+    0% {
+        color: #16a34a;
+        background-color: rgba(22, 163, 74, 0.3);
+    }
+    100% {
+        color: #111827;
+        background-color: transparent;
+    }
+}
+
+@keyframes flashred {
+    0% {
+        color: #dc2626;
+        background-color: rgba(220, 38, 38, 0.3);
+    }
+    100% {
+        color: #111827;
+        background-color: transparent;
+    }
+}
+.refresh {
+    border: 1px darkslategrey solid;
+    background-color: transparent;
+    font-family: 'SF Mono', 'Consolas', monospace;
+    border-radius: 10px;
+    padding:10px;
+    margin: 15px 50px;
+    font-size:25px;
+    vertical-align: baseline;
+    text-align: center;
+    color: cornflowerblue;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.snapshot{
+    border: 1px darkslategrey solid;
+    background-color: transparent;
+    font-family: 'SF Mono', 'Consolas', monospace;
+    border-radius: 10px;
+    padding:10px;
+    color: cornflowerblue;
+}
+
+.refresh:hover, .snapshot:hover {
+    background-color: #f7fafc;
+    border-color: #a0aec0;
+    color: #2d3748;
+}

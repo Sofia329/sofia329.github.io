@@ -1,0 +1,70 @@
+
+body {
+    background: #333;
+}
+
+table {
+    table-layout: fixed;
+    font-style: oblique;
+    font-size: 15px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    background:  #dfe1e5;
+    margin:10px;
+}
+
+table td:first-child {
+    width: 30%;
+    vertical-align:middle;
+    font-size-adjust: 0.545;
+
+}
+
+button {
+    border: 1px black solid;
+    background-color: transparent;
+    font-family: 'SF Mono', 'Consolas', monospace;
+    border-radius: 10px;
+    padding:15px;
+    margin: 10px 0px;
+    font-size:25px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1.5;
+    color: cornflowerblue;
+}
+
+button:hover{
+    background-color: #555;
+    border-color: #666;
+}
+
+
+.up {
+    animation: flashgreen 1.5s ease-out forwards;
+}
+.down {
+    animation: flashred 1.5s ease-out forwards;
+}
+
+@keyframes flashgreen {
+    0% {
+        color: #16a34a;
+        font-color: rgba(22, 163, 74, 0.3);
+    }
+    100% {
+        color: #111827;
+        font-color: transparent;
+    }
+}
+
+@keyframes flashred {
+    0% {
+        color: #dc2626;
+        font-color: rgba(220, 38, 38, 0.3);
+    }
+    100% {
+        color: #111827;
+        font-color: transparent;
+    }
+}

@@ -1,0 +1,101 @@
+{% extends "trading/layout.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'trading/dashboard.css'%}" >
+{% endblock %}
+
+{% block script %}
+<script src= "{% static 'trading/dashboard.js' %}"></script>
+{% endblock %}
+
+<!----------------------------------------------------------------------------------------------------------------->
+{% block body %}
+
+
+{% if show_dashboard %}
+    <div class = "menu">
+        <button data-category = "us_watchlist">US</button>
+        <button data-category = "world_watchlist" >World</button>
+        <button data-category = "commodities_watchlist" >Commodities</button>
+        <button data-category = "future_watchlist">Future</button>
+        <button data-category = "treasury_watchlist">Treasury</button>
+    </div>
+   <!-- ------------------------------------------------------------------------------------------------------------>
+    <table class = "Watchlist table table-sm table-hover" data-category = "us_watchlist" hidden>
+        {% for ticker in US_Watchlist %}
+        <tr>
+            <td><a href="#" data-ticker="{{ticker.ticker}}">{{ticker.fullname}}</a></td>
+            <td class="price">{{ ticker.livestream.price|floatformat:2 }}</td>
+            <td class="change">{{ ticker.livestream.change|floatformat:2 }}</td>
+            <td class="change_percent">{{ ticker.livestream.change_percent|floatformat:2 }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+   <!-- ------------------------------------------------------------------------------------------------------------>
+   <div class="table-card">
+   <table class = "Watchlist table table-sm table-hover"  data-category = "world_watchlist" hidden>
+        {% for ticker in World_Watchlist %}
+        <tr>
+            <td><a href="#" data-ticker="{{ticker.ticker}}">{{ticker.fullname}}</a></td>
+            <td class="price">{{ ticker.livestream.price|floatformat:2 }}</td>
+            <td class="change">{{ ticker.livestream.change|floatformat:2 }}</td>
+            <td class="change_percent">{{ ticker.livestream.change_percent|floatformat:2 }}%</td>
+        </tr>
+        {% endfor %}
+    </table></div>
+   <!-- ------------------------------------------------------------------------------------------------------------>
+    <div class="table-card">
+   <table class = "Watchlist table table-sm table-hover"   data-category = "commodities_watchlist" hidden>
+        {% for ticker in Commodities_Watchlist %}
+        <tr>
+            <td><a href="#" data-ticker="{{ticker.ticker}}">{{ticker.fullname}}</a></td>
+            <td class="price">{{ ticker.livestream.price|floatformat:2 }}</td>
+            <td class="change">{{ ticker.livestream.change|floatformat:2 }}</td>
+            <td class="change_percent">{{ ticker.livestream.change_percent|floatformat:2 }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+   <!-- ------------------------------------------------------------------------------------------------------------>
+   <div class="table-card">
+   <table class = "Watchlist table table-sm table-hover"  data-category = "future_watchlist" hidden>
+        {% for ticker in Future_Watchlist %}
+        <tr>
+            <td><a href="#" data-ticker="{{ticker.ticker}}">{{ticker.fullname}}</a></td>
+            <td class="price">{{ ticker.livestream.price|floatformat:2 }}</td>
+            <td class="change">{{ ticker.livestream.change|floatformat:2 }}</td>
+            <td class="change_percent">{{ ticker.livestream.change_percent|floatformat:2 }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+   <!-- ------------------------------------------------------------------------------------------------------------>
+    <div class="table-card">
+   <table class = "Watchlist table table-sm table-hover"   data-category = "treasury_watchlist" hidden>
+        {% for ticker in Treasury_Watchlist %}
+        <tr>
+            <td><a href="#" data-ticker="{{ticker.ticker}}">{{ticker.fullname}}</a></td>
+            <td class="price">{{ ticker.livestream.price|floatformat:2 }}</td>
+            <td class="change">{{ ticker.livestream.change|floatformat:2 }}</td>
+            <td class="change_percent">{{ ticker.livestream.change_percent|floatformat:2 }}%</td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+   <!-- ------------------------------------------------------------------------------------------------------------>
+
+   <!---------------For Dashboard Plotting-------------------------------------------------------------------------->
+   {{US_Watchlist|json_script:"us_watchlist"}}
+   {{World_Watchlist|json_script:"world_watchlist"}}
+   {{Commodities_Watchlist|json_script:"commodities_watchlist"}}
+   {{Future_Watchlist|json_script:"future_watchlist"}}
+   {{Treasury_Watchlist|json_script:"treasury_watchlist"}}
+   <div id="dashboard-chart" style = "width: 100%; height: 600px;"></div>
+   <!-- ------------------------------------------------------------------------------------------------------------>
+{% endif %}
+
+{% endblock %}

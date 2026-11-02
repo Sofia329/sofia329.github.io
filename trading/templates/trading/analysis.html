@@ -1,0 +1,125 @@
+{% extends "trading/layout.html" %}
+
+{% load static %}
+
+{% block title %}Metrics{% endblock %}
+
+{% block script %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'trading/analysis.css'%}" >
+{% endblock %}
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const button = document.querySelector('#download');
+        button.addEventListener('click', ()=> {
+            const target = document.querySelector('#Canvas-Download');
+            html2canvas(target)
+            .then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'page.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            })
+            .catch(error => {alert(error.message);})
+        });
+
+    });
+
+
+</script>
+
+{% endblock %}
+
+{% block body %}
+
+<!---------------------------------Ticker Meta ----------------------------------------------------------------->
+
+<form action = "{% url 'analysis' %}"  method = "post">
+    {% csrf_token %}
+    <input type="text" autofocus autocomplete="off" name="ticker" placeholder = "Stock Ticker Only">
+    <input type="submit" value = "Query Ticker Info">
+</form>
+
+<div id = "Canvas-Download">
+<h2 data-header="tickermeta" >Ticker Meta</h2>
+
+<table class="table table-sm table-hover class="list-group list-group-flush"" >
+    {% for key, value in tickermeta.items %}
+    <tr>
+        <td>{{key}}</td>
+        <td>{{value}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+<!---------------------------------Ticker Meta ----------------------------------------------------------------->
+
+<h2  data-header="valuation">Valuation</h2>
+
+<table class="table table-sm table-hover" >
+    {% for key, value in valuation.items %}
+    <tr>
+        <td>{{key}}</td>
+        <td>{{value}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<!---------------------------------Ticker Meta ----------------------------------------------------------------->
+
+<h2 >Dividend & Yield</h2>
+
+<table class="table table-sm table-hover">
+    {% for key, value in dividend.items %}
+    <tr>
+        <td>{{key}}</td>
+        <td>{{value}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<!---------------------------------Ticker Meta ----------------------------------------------------------------->
+
+<h2 >Risk & Volatility</h2>
+
+
+<table class="table table-sm table-hover">
+    {% for key, value in risk.items %}
+    <tr>
+        <td>{{key}}</td>
+        <td>{{value}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<!---------------------------------Ticker Meta ----------------------------------------------------------------->
+<h2>Earnings</h2>
+
+<table class="table table-sm table-hover">
+    {% for key, value in earning.items %}
+    <tr>
+        <td>{{key}}</td>
+        <td>{{value}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<!---------------------------------Ticker Meta ----------------------------------------------------------------->
+<h2 >Analyst Rating</h2>
+
+
+<table class="table table-sm table-hover">
+    {% for key, value in analystrating.items %}
+    <tr>
+        <td>{{key}}</td>
+        <td>{{value}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</div>
+<span id="download">Download Snapshot</span>
+
+{% endblock %}
