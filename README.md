@@ -57,7 +57,11 @@ The helper file - `market.py` is assists the views functions by serializing the 
 
 
 ```text
-trading_project/
+
+├── assests
+│   ├── analysis.gif
+│   ├── Dashboard.gif
+│   └── Info.gif
 ├── capstone
 │   ├── asgi.py
 │   ├── __init__.py
@@ -98,6 +102,7 @@ trading_project/
     ├── tests.py
     ├── urls.py
     └── views.py
+
 ```
 
 ## Features
@@ -138,7 +143,7 @@ It's important to note that the yfinance WebSocket API returns data fields inclu
 
 The below is a demo play of Dashboard Page
 
-![Dashboard Demo](/Dashboard.gif)
+![Dashboard Demo](assets/Dashboard.gif)
 
 #### Info Page
 
@@ -165,7 +170,7 @@ Similar to the chart section, the **information metric** section is also built w
 
 The below is a demo play of Info Page
 
-![Info Demo](/Info.gif)
+![Info Demo](assets/Info.gif)
 
 #### Analysis Page
 
@@ -173,7 +178,7 @@ The analysis page uses the data returned by the `analysis` views function, which
 
 The below is a demo play of Analysis Page
 
-![Analysis Demo](/analysis.gif)
+![Analysis Demo](assets/analysis.gif)
 
 ## Architecture
 
