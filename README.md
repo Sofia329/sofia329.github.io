@@ -138,6 +138,7 @@ It's important to note that the yfinance WebSocket API returns data fields inclu
 
 The below is a demo play of Dashboard Page
 
+![Dashboard Demo](/Dashboard.gif)
 
 #### Info Page
 
@@ -164,12 +165,15 @@ Similar to the chart section, the **information metric** section is also built w
 
 The below is a demo play of Info Page
 
+![Info Demo](/Info.gif)
+
 #### Analysis Page
 
 The analysis page uses the data returned by the `analysis` views function, which sends a GET request to the yfinance API to query the `info` of a ticker. It returns tabular metric information including a ticker's valuation, risk, earnings, dividend, and analyst ratings metrics. The page also allows users to save a local copy of the populated table dashboard.
 
 The below is a demo play of Analysis Page
 
+![Analysis Demo](/analysis.gif)
 
 ## Architecture
 
