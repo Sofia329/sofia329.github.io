@@ -141,9 +141,9 @@ Each asset is clickable to view its price chart. The dashboard uses the yfinance
 
 It's important to note that the yfinance WebSocket API returns data fields including `id`, `price`, `time`, `currency`, `exchange`, `day_high`, `day_low`, `change`, `change_percent`, and more. In my dashboard, I only cached the `price`, `change`, and `change_percent` data from this live stream feed. Since yfinance provides the current price, the change is calculated as the current price against either the previous market close (if the market is close) or the current market open price (if the market is open), rather than being calculated from tick-by-tick price changes every second. When the market is open, it will be a dynamic change of prices render in red color for a price drop and green color for a price up, if the market is close, it will be static data which fetched from yfianne REST API using `fast_info` method for the `Ticker` object.
 
-The below is a demo play of Dashboard Page
+**The below is a demo play of Dashboard Page**
 
-![Dashboard Demo](assets/Dashboard.gif)
+![Dashboard Demo](assests/Dashboard.gif)
 
 #### Info Page
 
@@ -168,17 +168,17 @@ OHLC = yf.download(
 ```
 Similar to the chart section, the **information metric** section is also built with data sent by the server, but it takes the data from the `yfinance fast_info` module, which contains a short list of data mainly surrounding the ticker's price dimensions, which is less time consumed than calling `yfiannce info` module. Users are allowed to press the refresh button to make a real API call towards yfinance to fetch the newest data and re-render the metric table with the new data without page reload.
 
-The below is a demo play of Info Page
+**The below is a demo play of Info Page**
 
-![Info Demo](assets/Info.gif)
+![Info Demo](assests/Info.gif)
 
 #### Analysis Page
 
 The analysis page uses the data returned by the `analysis` views function, which sends a GET request to the yfinance API to query the `info` of a ticker. It returns tabular metric information including a ticker's valuation, risk, earnings, dividend, and analyst ratings metrics. The page also allows users to save a local copy of the populated table dashboard.
 
-The below is a demo play of Analysis Page
+**The below is a demo play of Analysis Page**
 
-![Analysis Demo](assets/analysis.gif)
+![Analysis Demo](assests/analysis.gif)
 
 ## Architecture
 
