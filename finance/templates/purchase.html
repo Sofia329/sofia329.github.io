@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div class="d-flex flex-column gap-5">
+<table class="table table-hover">
+    <thead>
+        <tr>
+           <th scope="col">Stock_Ticker</th>
+           <th scope="col">Shares</th>
+           <th scope="col">AVG Price</th>
+           <th scope="col">Current Price</th>
+           <th scope="col">Purchase Value (Static)</th>
+           <th scope="col">Market Value (Dynamic)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in records %}
+            <tr>
+                <td>{{  i["stock_ticker"]  }}</td>
+                <td>{{  i["number of shares"]  }}</td>
+                <td>{{  i["AVG purchase price"] | usd  }}</td>
+                <td>{{  current_price[i["stock_ticker"]] | usd }}</td>
+                <td>{{  i["purchase value"] | usd  }}</td>
+                <td>{{  stock_market_value [i["stock_ticker"]] | usd}}</td>
+            </tr>
+        {% endfor %}
+        <tr >
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="fw-bold border-top">Total: </td>
+            <td>{{total_purchase_value| usd}}</td>
+            <td>{{total_stock_value| usd}}</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-hover table-success">
+    <tr>
+        <th>Current Cash Balance</th>
+        <th>Total Balance (cash & stock)</th>
+    </tr>
+    <tr>
+        <td>{{current_cash_balance | usd}}</td>
+        <td>{{total_balance | usd}}</td>
+    </tr>
+</table>
+</div>
+{% endblock %}

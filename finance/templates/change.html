@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<form action="/change" method="post" >
+    <div class="input-group mb-3">
+        <input autocomplete="off" autofocus  class="form-control " name="username" placeholder="Username" type="text">
+    </div>
+    <div class="input-group mb-3">
+        <input class="form-control" name="old_password" placeholder="Old Password" type="password">
+        <input class="form-control" name="new_password" placeholder="New Password" type="password">
+        <button class="btn btn-outline-success btn-outline-secondary" type="submit">Submit Change</button>
+    </div>
+</form>
+
+{% if get_flashed_messages() %}
+    <header>
+        <div class="alert alert-primary mb-0 text-center" role="alert">
+            {{ get_flashed_messages() | join(" ") }}
+        </div>
+    </header>
+{% endif %}
+
+{% endblock %}
+

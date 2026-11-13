@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<form action="sell", method="post">
+    <div class="form-group mb-3">
+    <input name="shares" placeholder="no. of shares" type="Number" autofocus autocomplete="off" class="form-control">
+    </div>
+    <div class="form-group mb-3">
+    <select name="symbol" class="form-select" >
+        <option selected>Open to see your current holding</option>
+        {% for stock in holdings  %}
+
+            {% if stock['inventory'] == 0 %}
+                <option disabled value = "{{stock['stock_ticker']}}">{{stock["stock_ticker"]}} -- sold out</option>
+            {% else %}
+                <option value = "{{stock['stock_ticker']}}">{{stock["stock_ticker"]}}</option>
+            {% endif %}
+        {%  endfor %}
+
+    </select>
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button type="submit" class="btn btn-success">Sell</button>
+    </div>
+</form>
+
+{% endblock %}

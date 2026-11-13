@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<br><br>
+<h1> Transaction Record </h1>
+<br><br>
+
+<table class="table table-hover" style="text-align: center;">
+
+    <thead>
+        <tr>
+            <th scope="col"> Ticker </th>
+            <th scope="col"> Shares </th>
+            <th scope="col"> Price </th>
+            <th scope="col"> Direction </th>
+            <th scope="col"> TimeStamp </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in transactions %}
+
+            <tr>
+                <td> {{transaction.stock_ticker}} </td>
+                <td> {{transaction.shares}} </td>
+                <td> {{transaction.price | usd}} </td>
+                <td> {{transaction.direction}} </td>
+                <td> {{transaction.time}} </td>
+            </tr>
+
+        {% endfor %}
+
+    </tbody>
+</table>
+{% endblock %}
+
